@@ -325,8 +325,8 @@ BLOCK::BLOCK(char type, int type_n, int start_point, int move)
 			map[this->box[3].row][this->box[3].col] = 1;
 		}
 		else if (type_n == 2) {
-			this->box[0].row = maxrow - row - 1;           //012
-			this->box[0].col = start_point;                // 3
+			this->box[0].row = maxrow - row - 1;           
+			this->box[0].col = start_point;                
 			map[this->box[0].row][this->box[0].col] = 1;
 
 			this->box[1].row = maxrow - row - 1;
@@ -445,7 +445,6 @@ int valid_moving(BLOCK& block, int step)
 			for (int k = 0; k < 4; k++)
 				if ((block.box[i].row == block.box[k].row) && (block.box[i].col + step == block.box[k].col))
 					self = 1;
-			cout << "ti\n";
 			if (self) continue;
 			else return 0;
 		}
@@ -461,9 +460,17 @@ void lose(void)
 void print(void)
 {
 	for (int i = maxrow - row - 4; i < maxrow; i++) {
-		cout << i << " ";
 		for (int j = 1; j <= col; j++)
 			cout << map[i][j];
 		cout << "\n";
 	}
+}
+
+int test(void)
+{
+	for (int i = 1; i <= col; i++) {
+		if (map[maxrow - row - 1][i] == 1)
+			return 1;
+	}
+	return 0;
 }

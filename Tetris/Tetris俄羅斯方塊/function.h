@@ -2,7 +2,7 @@
 #define TETRIS_H
 #include <iostream>
 #define maxrow 20
-#define maxcol 40
+#define maxcol 45
 extern int map[maxrow][maxcol];
 extern int col, row;
 struct point {
@@ -33,5 +33,6 @@ int valid_moving(BLOCK&, int);
 
 void lose(void);
 void print(void);
+int test(void);
 
 #endif
